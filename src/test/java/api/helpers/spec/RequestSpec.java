@@ -8,20 +8,19 @@ import io.restassured.specification.RequestSpecification;
 public class RequestSpec {
     public RequestSpecification getRequestSpecification() {
         return new RequestSpecBuilder()
-                .setBaseUri("https://reqres.in")
-                .build();
+            .setBaseUri("https://reqres.in")
+            .build();
     }
 
 
     public RequestSpecification postRequestSpecification() {
         return new RequestSpecBuilder()
-                .setBaseUri("https://reqres.in")
-                .setContentType(ContentType.JSON)
-                .log(LogDetail.URI)
-                .log(LogDetail.BODY)
-                .build();
+            .setBaseUri("https://reqres.in")
+            .setContentType(ContentType.JSON)
+            .log(LogDetail.URI)
+            .log(LogDetail.BODY)
+            .build();
     }
-
 
 
 }

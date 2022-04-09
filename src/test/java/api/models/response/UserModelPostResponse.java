@@ -19,7 +19,7 @@ public class UserModelPostResponse {
     @Step("name должен быть равен {name}")
     public UserModelPostResponse nameIsEqual(String name) {
         new Attacher()
-                .expectationAndReality(name, this.name);
+            .expectationAndReality(name, this.name);
 
         assertThat(this.name).isEqualTo(name);
         return this;
@@ -28,7 +28,7 @@ public class UserModelPostResponse {
     @Step("job должен быть равен {job}")
     public UserModelPostResponse jobIsEqual(String job) {
         new Attacher()
-                .expectationAndReality(job, this.job);
+            .expectationAndReality(job, this.job);
 
         assertThat(this.job).isEqualTo(job);
         return this;
