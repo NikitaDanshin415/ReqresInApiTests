@@ -1,25 +1,27 @@
-package api.helpers;
+package api.helpers.spec;
 
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
+import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
 
-public class Specification {
+public class RequestSpec {
     public RequestSpecification getRequestSpecification() {
         return new RequestSpecBuilder()
                 .setBaseUri("https://reqres.in")
+                .build();
+    }
+
+
+    public RequestSpecification postRequestSpecification() {
+        return new RequestSpecBuilder()
+                .setBaseUri("https://reqres.in")
+                .setContentType(ContentType.JSON)
                 .log(LogDetail.URI)
                 .log(LogDetail.BODY)
                 .build();
     }
 
-    public ResponseSpecification getResponseSpecification() {
-        return new ResponseSpecBuilder()
-                .log(LogDetail.URI)
-                .log(LogDetail.BODY)
-                .expectStatusCode(200)
-                .build();
-    }
+
+
 }

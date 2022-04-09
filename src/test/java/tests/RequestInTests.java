@@ -1,7 +1,9 @@
 package tests;
 
 import api.controllers.UserController;
+import api.models.request.UserModelPostRequest;
 import api.models.response.UserListModelResponse;
+import api.models.response.UserModelPostResponse;
 import api.models.response.UserModelResponse;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
@@ -45,5 +47,27 @@ public class RequestInTests {
     void user404Test() {
         userController
                 .get404();
+    }
+
+    @Test
+    @DisplayName("Проверка запроса POST api/users")
+    void createUserTest() {
+        UserModelPostRequest user = new UserModelPostRequest("Test", "test");
+
+        UserModelPostResponse responseUserController =
+                userController
+                        .createUser(user);
+
+        responseUserController
+                .nameIsEqual(user.getName())
+                .jobIsEqual(user.getJob());
+    }
+
+    @Test
+    @DisplayName("Проверка запроса DELETE api/users")
+    void deleteUserTest() {
+        userController
+                .deleteUser(2);
+
     }
 }
