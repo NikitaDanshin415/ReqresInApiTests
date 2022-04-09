@@ -2,3 +2,7 @@
 /.gradle/
 /build/
 /build/classes/java/test/
+/.idea
+gradlew
+gradlew.bat
+settings.gradle
